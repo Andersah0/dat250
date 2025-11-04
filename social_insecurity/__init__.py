@@ -8,9 +8,11 @@ from shutil import rmtree
 from typing import cast
 
 from flask import Flask, current_app
-
+from flask_wtf.csrf import CSRFProtect 
 from social_insecurity.config import Config
 from social_insecurity.database import SQLite3
+
+csrf = CSRFProtect()                      
 
 # from flask_login import LoginManager
 # from flask_bcrypt import Bcrypt
@@ -29,6 +31,7 @@ def create_app(test_config=None) -> Flask:
     """Create and configure the Flask application."""
     app = Flask(__name__)
     app.config.from_object(Config)
+    csrf.init_app(app)
     if test_config:
         app.config.from_object(test_config)
 

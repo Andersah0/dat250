@@ -16,6 +16,7 @@
           <div class="card-body">
             <h5 class="card-title mb-3">Access an existing profile</h5>
             <form action="" method="post" novalidate>
+                {{ form.login.hidden_tag() }}
               <div class="mb-3">{{ form.login.username(class_="form-control") }}</div>
               <div class="mb-3">{{ form.login.password(class_="form-control") }}</div>
               <div class="mb-3 form-check form-check-inline">
@@ -33,6 +34,7 @@
           <div class="card-body">
             <h5 class="card-title mb-3">Create a new profile</h5>
             <form action="" method="post" novalidate>
+              {{ form.register.hidden_tag() }}
               <div class="mb-3">{{ form.register.first_name(class_="form-control") }}</div>
               <div class="mb-3">{{ form.register.last_name(class_="form-control") }}</div>
               <div class="mb-3">{{ form.register.username(class_="form-control") }}</div>

@@ -8,8 +8,9 @@
           <div class="card-body">
             <h4 class="card-title mb-3">Add a new friend</h4>
             <form action="" method="post" novalidate>
+              {{ form.hidden_tag() }}
               <div class="mb-3">{{ form.username(class_="form-control") }}</div>
-              <div>{{ form.submit(class="btn btn-primary") }}</div>
+              <div>{{ form.submit(class_="btn btn-primary") }}</div>
             </form>
           </div>
         </div>
@@ -25,7 +26,7 @@
               <ul class="list-group list-group-flush">
                 {% for friend in friends %}
                   <li class="list-group-item">
-                    <a href={{ url_for('profile', username=friend.username) }}>{{ friend.username }}</a>
+                    <a href="{{ url_for('profile', username=friend.username) }}">{{ friend.username | e }}</a>
                   </li>
                 {% endfor %}
               </ul>
